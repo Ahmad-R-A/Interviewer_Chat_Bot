@@ -1,7 +1,11 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 db = SQLAlchemy()
+bcrypt = Bcrypt()
+loginManager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
@@ -9,6 +13,8 @@ def create_app():
     app.config['SECRET_KEY'] = 'some_secret_key'  # required for FlaskForm CSRF
 
     db.init_app(app)
+    bcrypt.init_app(app)
+    loginManager.init_app(app)
 
     from .routes import main
     app.register_blueprint(main)

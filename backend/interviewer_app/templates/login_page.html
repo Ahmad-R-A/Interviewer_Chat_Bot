@@ -5,7 +5,31 @@
 {% endblock %}
 
 {% block content %}
-    <p>
-        This is temporary content for the login page!
-    </p>
+<div class="d-flex flex-column justify-content-center align-items-center text-center">
+    <section>
+        <h1>Login Page</h1>
+        <p class="fs-3">Welcome to the Login Page!</p>
+    </section>
+</div>
+<div class="p-4">
+    <form method="POST" class="form-signin bg-light p-4">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Login Form</legend>
+            <div class="form-floating mb-4">
+                {{ form.email(class="form-control form-control-lg fs-4", placeholder="johndoe@email.com", required=True) }}
+                {{ form.email.label }}
+            </div>
+            <div class="form-floating mb-4">
+                {{ form.password(class="form-control form-control-lg fs-4", placeholder="password123", type="password", autocomplete="new-password", required=True) }}
+                {{ form.password.label }}
+            </div>
+            <div class="checkbox mb-3">
+                <h6>Haven't signed up yet? Click on the button below to Sign-Up!</h6>
+                <a class="btn btn-secondary" href="{{ url_for('main.sign_up_page') }}">Sign-Up</a>
+            </div>
+            {{ form.submit(class="btn btn-primary px-4 fs-4", type="submit") }}
+        </fieldset>
+    </form>
+</div>
 {% endblock %}

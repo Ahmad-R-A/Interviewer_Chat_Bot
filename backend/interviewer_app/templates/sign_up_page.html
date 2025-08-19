@@ -42,18 +42,22 @@
                     </div>
                 </div>
                 <div class="form-floating mb-4">
-                    {{ form.password(class="form-control form-control-lg fs-4", placeholder="password", type="password", required=True) }}
+                    {{ form.password(class="form-control form-control-lg fs-4", placeholder="password", type="password", autocomplete="new-password", required=True) }}
                     {{ form.password.label }}
                     <div class="invalid-feedback">
                         Please enter a password.
                     </div>
                 </div>
                 <div class="form-floating mb-4">
-                    {{ form.confirmPassword(class="form-control form-control-lg fs-4", placeholder="password", type="password", required=True) }}
+                    {{ form.confirmPassword(class="form-control form-control-lg fs-4", placeholder="password", type="password", autocomplete="new-password", required=True) }}
                     {{ form.confirmPassword.label }}
                     <div class="invalid-feedback">
                         Please enter matching passwords.
                     </div>
+                </div>
+                <div class="checkbox mb-3">
+                    <h6>Already signed up? Click on the button below to Login!</h6>
+                    <a class="btn btn-secondary" href="{{ url_for('main.login_page') }}">Login</a>
                 </div>
                 {{ form.submit(class="btn btn-primary px-4 fs-4", type="submit") }}      
             </fieldset>

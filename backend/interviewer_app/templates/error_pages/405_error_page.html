@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Method not allowed.
+{% endblock %}
+
+{% block content %}
+    <section class="bg-primary m-4 text-center fw-bolder">
+        <h1 class="fst-italic text-decoration-underline">There was an error:</h1>
+        <p>An invalid method was used for the target resource.</p>
+        <div class="checkbox mb-3">
+            <h6>Try filling out those forms again by using the navigation bar above to go back to where you were. Or you can go back to home by clicking the button below.</h6>
+            <a class="btn btn-dark mb-4" href="{{ url_for('main.home_page') }}">Back to Home</a>
+        </div>
+    </section>
+{% endblock %}

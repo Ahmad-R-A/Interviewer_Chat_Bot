@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Interviewer Chat Bot Page
+{% endblock %}
+
+{% block extraCSSFiles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat_box_style.css') }}">
+{% endblock %}
+
+{% block extraJavaScriptFiles %}
+    <script>
+        const url = "{{ url_for('main.ask') }}"
+    </script>
+    <script src="{{ url_for('static', filename='js/chat_bot_updater.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h1 class="text-center text-decoration-underline"> The Interviewer Chat Bot Page</h1>
+        <div class="chat-container border rounded mt-4 p-3 bg-light">
+            <div id="chat-box" class="chat-box">
+            </div>
+        </div>
+    </section>
+    <section>
+        <form id="chat-form" class="d-flex mt-2">
+            {{ form.hidden_tag() }}
+            <div class="form-floating flex-grow-1">
+                {{ form.userPrompt(type="textarea", class="form-control m-2 fs-4", id="userPrompt", placeholder="Prompt here", required=True) }}
+                {{ form.userPrompt.label }}
+            </div>
+            {{ form.submit(type="submit", class="btn btn-primary ms-4 flex-shrink-0") }}
+        </form>
+    </section>
+{% endblock %}

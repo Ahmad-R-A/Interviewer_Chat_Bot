@@ -21,3 +21,7 @@ class LoginForm(FlaskForm):
     email = StringField(label="Email", validators=[DataRequired()])
     password = StringField(label="Password", validators=[DataRequired()])
     submit = SubmitField(label="Login")
+
+class ChatBotForm(FlaskForm):
+    userPrompt = StringField(label="Prompt", validators=[DataRequired()])
+    submit = SubmitField(label='Submit Prompt', validators=[DataRequired()])

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Unauthorised access.
+{% endblock %}
+
+{% block content %}
+    <section class="bg-primary m-4 text-center fw-bolder">
+        <h1 class="fst-italic text-decoration-underline">There was an error:</h1>
+        <p>You have tried to access the Interviewer Chat Bot page, but you are not logged in or you do not have an account.</p>
+        <div class="checkbox mb-3">
+            <h6>You can fix this by clicking on the buttons below to Login or Sign-Up!</h6>
+            <a class="btn btn-dark mb-4" href="{{ url_for('main.sign_up_page') }}">Sign-Up</a>
+            <a class="btn btn-dark mb-4" href="{{ url_for('main.login_page') }}">Login</a>
+        </div>
+    </section>
+{% endblock %}

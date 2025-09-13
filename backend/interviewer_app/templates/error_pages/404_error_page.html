@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Page could not be find
+{% endblock %}
+
+{% block content %}
+    <section class="bg-primary m-4 text-center fw-bolder">
+        <h1 class="fst-italic text-decoration-underline">There was an error:</h1>
+        <p>You have tried to access a page that could not be found.</p>
+        <div class="checkbox mb-3">
+            <h6>Try going back to the home page and navigate from there. Or you can use the navigation bar above.</h6>
+            <a class="btn btn-dark mb-4" href="{{ url_for('main.home_page') }}">Back to Home</a>
+        </div>
+    </section>
+{% endblock %}

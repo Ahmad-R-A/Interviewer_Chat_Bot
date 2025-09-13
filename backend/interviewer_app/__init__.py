@@ -2,10 +2,17 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from openai import OpenAI
+from typing import List
+from pydantic import BaseModel
+import os
+
+open_ai_api_key = os.environ['openAISecretKey']
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 loginManager = LoginManager()
+client = OpenAI(api_key=open_ai_api_key)
 
 def create_app():
     app = Flask(__name__)

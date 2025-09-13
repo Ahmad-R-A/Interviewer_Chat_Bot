@@ -5,7 +5,21 @@
 {% endblock %}
 
 {% block content %}
-    <p>
-        This is the home page of the website. Soon to be an interviewer chat bot to be here.
-    </p>
+        <section class="bg-primary m-4 text-center fw-bolder">
+            {% if current_user.is_authenticated %}  
+                <h1 class="fst-italic text-decoration-underline">Welcome {{ current_user.firstName }} {{ current_user.lastName }}</h1>
+                <p>This is the home page. If you wish to start interacting with the Interviewer Chat Bot, click on the button below!</p>
+                <div class="checkbox">
+                    <a class="btn btn-dark mb-4" href="{{ url_for('main.chat_bot_page') }}">Interviewer Chat Bot Page</a>
+                </div>
+            {% else %}
+                <h1 class="fst-italic text-decoration-underline">Welcome to my website!</h1>
+                <p>This is the home page. If you wish to start interacting with the Interviewer Chat Bot, you first need to sign up or login.</p>
+                <p>You can do this by looking at the relevant button below!</p>
+                <div class="checkbox">
+                    <a class="btn btn-dark mb-4" href="{{ url_for('main.sign_up_page') }}">Sign-Up</a>
+                    <a class="btn btn-dark mb-4" href="{{ url_for('main.login_page') }}">Login</a>
+                </div>
+            {% endif %}
+        </section>
 {% endblock %}

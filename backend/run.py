@@ -1,5 +1,9 @@
-from interviewer_app import create_app
-from interviewer_app import db
+# The import below for create_app method is important as this returns
+# the app object alongside everything else being initialised within the app object
+# so it is ready to be run through this file.
+# The db is also important so that a database can be created if the app detects that
+# there is no database within the directory.
+from interviewer_app import create_app, db
 
 app = create_app()
 
